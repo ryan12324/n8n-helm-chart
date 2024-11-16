@@ -6,11 +6,6 @@ n8n:
 defaults:
 
 config:
-  executions:
-    # prune executions by default
-    pruneData: "true"
-    # Per default, we store 1 year of history
-    pruneDataMaxAge: 3760
 
 # existingSecret and secret are exclusive, with existingSecret taking priority.
 # existingSecret: "" # Use an existing Kubernetes secret, e.g created by hand or Vault operator.
