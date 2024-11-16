@@ -108,7 +108,8 @@ spec:
       {{- end }}
       volumes:
         - name: "data"
-          {{ include "n8n.pvc" . }}
+          persistentVolumeClaim:
+            claimName: n8n
         {{- if .Values.config }}
         - name: config-volume
           configMap:
