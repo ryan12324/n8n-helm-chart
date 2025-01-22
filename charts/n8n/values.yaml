@@ -329,3 +329,11 @@ redis:
       enabled: true
       existingClaim: ""
       size: 2Gi
+
+selenium:
+  image: selenium/standalone-chrome:129.0
+  container_name: selenium_chrome
+  ports:
+    - "4444:4444"
+  env_file: []
+  networks: []

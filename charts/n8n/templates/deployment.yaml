@@ -94,6 +94,18 @@ spec:
             - name: secret-volume
               mountPath: /n8n-secret
                 {{- end }}
+        - name: selenium_chrome
+          image: selenium/standalone-chrome:129.0
+          ports:
+            - containerPort: 4444
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: selenium-env
+          volumeMounts:
+            - name: selenium-env
+              mountPath: /etc/selenium-env
+              subPath: .env
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -123,3 +135,6 @@ spec:
               - key: "secret.json"
                 path: "secret.json"
         {{- end }}
+        - name: selenium-env
+          configMap:
+            name: selenium-env
