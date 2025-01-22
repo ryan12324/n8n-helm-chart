@@ -94,7 +94,7 @@ spec:
             - name: secret-volume
               mountPath: /n8n-secret
                 {{- end }}
-        - name: selenium_chrome
+        - name: selenium-chrome
           image: selenium/standalone-chrome:129.0
           ports:
             - containerPort: 4444
